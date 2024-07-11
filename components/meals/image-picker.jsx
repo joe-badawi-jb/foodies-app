@@ -5,6 +5,7 @@ import classes from "./image-picker.module.css";
 import Image from "next/image";
 
 export default function ImagePicker({ label, name }) {
+
   const [pickedImage, setPickedImage] = useState();
 
   const handleImageChange = (e) => {
@@ -49,6 +50,7 @@ export default function ImagePicker({ label, name }) {
           accept="image/png, image/jpeg"
           name={name}
           onChange={handleImageChange}
+          required
         />
         <button
           className={classes.button}
