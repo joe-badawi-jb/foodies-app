@@ -11,11 +11,16 @@ import MealsGrid from "@/components/meals/meals-grid";
 //   return <MealsGrid meals={meals} />;
 // }
 
+// this is STATIC METADATA GENERATION
+export const metadata = {
+  title: "All Meals",
+  description: "Checkout the Delicious meals shared by our community!",
+};
+
 // we can use async here in server components, async wraps the function inside a promise
 export default async function MealsPage() {
-  
   const meals = await getMeals();
-  
+
   return (
     <>
       <header className={classes.header}>

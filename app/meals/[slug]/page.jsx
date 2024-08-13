@@ -3,6 +3,23 @@ import classes from "./page.module.css";
 import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
 
+// This function receives the same data as the page component receives
+// Dynamic MetaData generation
+export async function generateMetadata({ params }) {
+  const meal = await getMeal(params.slug);
+  console.log(meal);
+  
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
 export default async function SingleMeal({ params }) {
   const meal = await getMeal(params.slug);
 
